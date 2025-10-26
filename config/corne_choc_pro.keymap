@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#define XXX &none
+
 / {
     chosen {
         zmk,physical-layout = &default_layout;
@@ -19,7 +21,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default_layer {                                                                                      
             display-name = "RSTHD";
             bindings = <
             //                                                                                                                          xw.-;
@@ -30,7 +32,7 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LSHFT     &kp FSLH      &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp ESC
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LALT      &kp E         &kp BSPC              &kp LSHFT     &kp SPACE     &kp LGUI                                                              
+                                                                       &kp ESC       &kp E         &kp BSPC              &kp LSHFT     &kp SPACE     &kp LGUI                                                              
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -42,11 +44,11 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp LCTRL             &kp RCTRL     &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LALT              &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
+               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LALT              &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX           XXX   
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LSHFT     &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset  &bootloader   &studio_unlock                                    &trans        &bootloader   &trans        &trans        &trans        &trans
+               &kp LSHFT     &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset  &bootloader   &studio_unlock                                    XXX           &bootloader   XXX           XXX           XXX           XXX   
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LGUI      &trans        &kp SPACE             &kp LGUI      &trans        &kp SPACE
+                                                                       &kp LGUI      XXX           &kp SPACE             &kp LGUI      XXX           &kp SPACE
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -58,11 +60,11 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp HASH      &kp CARET     &kp SQT       &kp DQT       &kp PLUS      &kp QMARK     &kp LCTRL             &kp RCTRL     &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &kp BSPC
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp EXCL      &kp GRAVE     &kp LBKT      &kp RBKT      &kp EQUAL     &kp STAR      &kp LALT              &kp RALT      &kp MINUS     &kp TILDE     &kp DLLR      &trans        &kp BSLH      &kp GRAVE
+               &kp EXCL      &kp GRAVE     &kp LBKT      &kp RBKT      &kp EQUAL     &kp STAR      &kp LALT              &kp RALT      &kp MINUS     &kp TILDE     &kp DLLR      XXX           &kp BSLH      &kp GRAVE
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp AMPS      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp FSLH                                          &kp CARET     &kp PLUS      &kp AT        &kp RBRC      &kp PIPE      &kp TILDE
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LGUI      &trans        &kp BSPC              &kp RET       &trans        &kp RALT
+                                                                       &kp LGUI      XXX           &kp BSPC              &kp RET       XXX           &kp RALT
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -70,60 +72,60 @@
         extra_layer_1 {
             display-name = "EXTRA 1";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
 
         extra_layer_2 {
             display-name = "EXTRA 2";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
 
         extra_layer_3 {
             display-name = "EXTRA 3";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
 
         extra_layer_4 {
             display-name = "EXTRA 4";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
 
         extra_layer_5 {
             display-name = "EXTRA 5";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
 
         extra_layer_6 {
             display-name = "EXTRA 6";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
+                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
+                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
     };
