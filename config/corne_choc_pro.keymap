@@ -243,7 +243,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
-            bindings = <&kp LA(LS(TAB))>;
+            bindings = <&kp LA(RIGHT)>;
         };
 
         n_page: n_page {
@@ -251,7 +251,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
-            bindings = <&kp LC(TAB)>;
+            bindings = <&kp LA(LEFT)>;
         };
 
         claude: claude {
@@ -267,8 +267,10 @@
               &kp LS(ENTER)
               &kp LC(V)
               &kp DOWN
+              &kp GRAVE
+              &kp GRAVE
+              &kp GRAVE
               &kp LS(ENTER)
-              &kp BSPC
           >;
         };
 
@@ -281,6 +283,14 @@
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             bindings = <&mo>, <&kp>;
+        };
+
+        ht_kp: ht_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&kp>;
         };
 
         ht_sk: ht_sk {
@@ -299,6 +309,10 @@
     };
 };
 
+#define ht_suse     &ht_kp LGUI SEMI
+#define ht_5sh      &ht_sk 5 LSHFT
+#define ht_ctsl     &ht_kp LCTRL FSLH
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -312,9 +326,9 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LCTRL     &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp LGUI
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LALT      &kp FSLH      &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp LALT
+               &kp LALT      ht_ctsl       &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     ht_suse       &kp LALT
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp ESC       &htap 3 E     &kp BSPC              &ht_sk 5 LSHFT &htap 3 SPACE &mo 4                                                              
+                                                                       &kp ESC       &htap 3 E     &kp BSPC              ht_5sh        &htap 3 SPACE &mo 4                                                              
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;                                                                                                                   
         };                                                                            
@@ -324,9 +338,9 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &bootloader           &bootloader   &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
+               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        XXX                   &bootloader   &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LALT              &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX           XXX   
+               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader           &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX           XXX   
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LSHFT     &bt BT_CLR    XXX           &sys_reset    XXX           &studio_unlock                                    XXX           &bootloader   XXX           XXX           XXX           XXX   
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
@@ -394,7 +408,7 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           &p_page       &n_page       XXX           XXX           XXX                                               XXX           &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       XXX           XXX           XXX                   XXX           XXX           XXX
+                                                                       XXX           XXX           &kp LSHFT             XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
