@@ -29,9 +29,7 @@
             wait-ms = <10>;
             tap-ms = <5>;
             bindings = <
-                &kp LGUI
-                &kp LALT
-                &kp LEFT
+              &kp LG(LA(LEFT))
             >;
         };
 
@@ -40,7 +38,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
-            bindings = <&kp LGUI &kp LALT &kp RIGHT>;
+            bindings = <
+              &kp LG(LA(RIGHT))
+            >;
         };
 
         // MACROS: Aerospace
@@ -214,7 +214,47 @@
             bindings = <&kp LC(A) &kp N>;
         };
 
-        p_tab: p_tab {
+        s_tmux: s_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp S>;
+        };
+
+        l_tmux: l_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp L>;
+        };
+
+        o_tab:  o_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(T)>;
+        };
+
+        c_tab:  c_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(W)>;
+        };
+
+        r_tab:  r_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(R)>;
+        };
+
+        p_tab:  p_tab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -243,7 +283,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
-            bindings = <&kp LA(RIGHT)>;
+            bindings = <&kp LA(LEFT)>;
         };
 
         n_page: n_page {
@@ -251,13 +291,13 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
-            bindings = <&kp LA(LEFT)>;
+            bindings = <&kp LA(RIGHT)>;
         };
 
         claude: claude {
           compatible = "zmk,behavior-macro";
           #binding-cells = <0>;
-          wait-ms = <10>;
+          wait-ms = <14>;
           tap-ms = <5>;
           bindings = <
               &kp LS(ENTER)
@@ -267,11 +307,23 @@
               &kp LS(ENTER)
               &kp LC(V)
               &kp DOWN
+              &kp LS(ENTER)
               &kp GRAVE
               &kp GRAVE
               &kp GRAVE
               &kp LS(ENTER)
           >;
+        };
+
+        caps_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <
+                UNDERSCORE
+                MINUS
+                N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+                BSPC DEL
+            >;
         };
 
         // HOLD TAPS
@@ -288,7 +340,7 @@
         ht_kp: ht_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             tapping-term-ms = <180>;
             bindings = <&kp>, <&kp>;
         };
@@ -299,6 +351,17 @@
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             bindings = <&mo>, <&sk>;
+        };
+    };
+};
+
+/ {
+    combos {
+        slv_2 {
+            timeout-ms = <40>;
+            key-positions = <30 31>;
+            layers = <0>;
+            bindings = <&mo 2>;
         };
     };
 };
@@ -322,9 +385,9 @@
             bindings = <
             //                                                                                            
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &mo 1         &kp J         &kp C         &kp Y         &kp F         &kp K         &mo 1                 &mo 1         &kp Z         &kp L         &kp COMMA     &kp U         &kp Q         &mo 1
+               &mo 1         &kp J         &kp C         &kp Y         &kp F         &kp K         &mo 1                 &mo 1         &kp Z         &kp L         &htap 2 COMMA &kp U         &kp Q         &mo 1
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LCTRL     &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp LGUI
+               &kp LSHFT     &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp LGUI
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LALT      ht_ctsl       &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     ht_suse       &kp LALT
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
@@ -338,13 +401,13 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        XXX                   &bootloader   &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
+               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &bootloader   XXX                   XXX           &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  XXX           XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader           &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX           XXX   
+               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  XXX                   XXX           XXX           &bt BT_SEL 4  &bt BT_SEL 0  XXX           XXX           XXX   
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LSHFT     &bt BT_CLR    XXX           &sys_reset    XXX           &studio_unlock                                    XXX           &bootloader   XXX           XXX           XXX           XXX   
+               &kp LSHFT     &bt BT_CLR    XXX           &sys_reset    XXX           &studio_unlock                                    XXX           XXX           XXX           XXX           XXX           XXX   
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LGUI      XXX           &rgb_ug RGB_TOG       &kp LGUI      XXX           &kp SPACE
+                                                                       &kp LGUI      XXX           &rgb_ug RGB_TOG       &rgb_ug RGB_TOG XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -354,13 +417,13 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp HASH      &kp CARET     &kp SQT       &kp DQT       &kp PLUS      &kp QMARK     &kp LCTRL             &kp RCTRL     XXX           &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &kp BSPC
+               &kp HASH      &kp CARET     &kp DQT       &kp SQT       &kp PLUS      &kp QMARK     XXX                   XXX           XXX           XXX           XXX           XXX           &shift_tab    XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp EXCL      &kp GRAVE     &kp LBKT      &kp RBKT      &kp EQUAL     &kp STAR      &kp LALT              &kp RALT      XXX           &kp CARET     &kp DLLR      XXX           &kp BSLH      &kp GRAVE
+               &kp EXCL      &kp GRAVE     &kp LBKT      &kp RBKT      &kp EQUAL     &kp STAR      XXX                   XXX           XXX           &kp CARET     XXX           &kp DLLR      &kp TAB       XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp AMPS      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp FSLH                                          &kp CARET     &kp PLUS      &kp AT        &kp RBRC      &kp PIPE      &kp TILDE
+               &kp AMPS      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp BSLH                                          XXX           XXX           XXX           XXX           XXX           XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LGUI      XXX           &kp BSPC              &kp RET       XXX           &kp RALT
+                                                                       XXX           &kp PIPE      &kp BSPC              XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -370,11 +433,11 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   XXX           XXX           XXX           &p_tmux       &n_tmux       XXX           XXX
+               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   XXX           &s_tmux       &l_tmux       &p_tmux       &n_tmux       XXX           &r_tab
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LCTRL     &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &sret         &sret         XXX           &kp LEFT      &kp RIGHT     XXX           XXX
+               &kp LCTRL     &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &sret         &sret         &ublw         &kp LEFT      &kp RIGHT     &ubrw         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           &p_tab        &n_tab        XXX           &paste                                            &kp RET       XXX           &p_tab        &n_tab        XXX           XXX
+               XXX           XXX           &p_tab        &n_tab        XXX           &paste                                            &kp RET       &o_tab        &p_tab        &n_tab        &c_tab        XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           XXX           XXX                   XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
@@ -406,20 +469,10 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           &claude       XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_h         &tw_j         &tw_k         &tw_l         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &p_page       &n_page       XXX           XXX           XXX                                               XXX           &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
+               XXX           &p_page       &n_page       XXX           XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           XXX           &kp LSHFT             XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-            >;
-        };
-
-        extra_layer_6 {
-            display-name = "EXTRA 6";
-            bindings = <
-                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
-                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
-                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
-                                     XXX    XXX    XXX                  XXX    XXX    XXX          
             >;
         };
     };
