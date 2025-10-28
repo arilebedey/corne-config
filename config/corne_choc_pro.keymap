@@ -11,6 +11,10 @@
 
 #define XXX &none
 
+&sk {
+    release-after-ms = <900>;
+    quick-release;
+};
 
 / {
     behaviors {
@@ -226,6 +230,48 @@
             bindings = <&kp LC(TAB)>;
         };
 
+        shift_tab: shift_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LS(TAB)>;
+        }; 
+
+        p_page: p_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(LS(TAB))>;
+        };
+
+        n_page: n_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(TAB)>;
+        };
+
+        claude: claude {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          wait-ms = <10>;
+          tap-ms = <5>;
+          bindings = <
+              &kp LS(ENTER)
+              &kp GRAVE
+              &kp GRAVE
+              &kp GRAVE
+              &kp LS(ENTER)
+              &kp LC(V)
+              &kp DOWN
+              &kp LS(ENTER)
+              &kp BSPC
+          >;
+        };
+
         // HOLD TAPS
         ///////////////
 
@@ -237,19 +283,12 @@
             bindings = <&mo>, <&kp>;
         };
 
-        sk: sk {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            release-after-ms = <900>;
-            quick-release;
-        };
-
-        htap_shift: htap_shift {
+        ht_sk: ht_sk {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
-            bindings = <&mo 5>, <&sk LSHFT>;
+            bindings = <&mo>, <&sk>;
         };
     };
 };
@@ -275,7 +314,7 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LALT      &kp FSLH      &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp LALT
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp ESC       &htap 3 E     &kp BSPC              &htap_shift   &htap 3 SPACE &mo 4                                                              
+                                                                       &kp ESC       &htap 3 E     &kp BSPC              &ht_sk 5 LSHFT &htap 3 SPACE &mo 4                                                              
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;                                                                                                                   
         };                                                                            
@@ -285,13 +324,13 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp LCTRL             &kp RCTRL     &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
+               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &bootloader           &bootloader   &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp BSPC
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LALT              &kp RALT      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX           XXX   
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LSHFT     &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset  &bootloader   &studio_unlock                                    XXX           &bootloader   XXX           XXX           XXX           XXX   
+               &kp LSHFT     &bt BT_CLR    XXX           &sys_reset    XXX           &studio_unlock                                    XXX           &bootloader   XXX           XXX           XXX           XXX   
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp LGUI      XXX           &kp SPACE             &kp LGUI      XXX           &kp SPACE
+                                                                       &kp LGUI      XXX           &rgb_ug RGB_TOG       &kp LGUI      XXX           &kp SPACE
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -333,7 +372,7 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N1        &kp N2        &kp N3        XXX           XXX
+               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N1        &kp N2        &kp N3        &shift_tab    XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N4        &kp N5        &kp N6        &kp TAB       &kp PGUP
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -351,9 +390,9 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_y         &tw_u         &tw_i         &tw_o         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_h         &tw_j         &tw_k         &tw_l         XXX
+               XXX           &claude       XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_h         &tw_j         &tw_k         &tw_l         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           XXX           XXX           XXX           XXX                                               XXX           &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
+               XXX           &p_page       &n_page       XXX           XXX           XXX                                               XXX           &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           XXX           XXX                   XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
