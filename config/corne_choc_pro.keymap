@@ -11,10 +11,188 @@
 
 #define XXX &none
 
+
 / {
     behaviors {
         // MACROS
         ///////////////
+
+        // MACROS: 42
+
+        ublw: ublw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LGUI
+                &kp LALT
+                &kp LEFT
+            >;
+        };
+
+        ubrw: ubrw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LGUI &kp LALT &kp RIGHT>;
+        };
+
+        // MACROS: Aerospace
+
+        tw_y: tw_y {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(Y)
+            >;
+        };
+
+        tw_u: tw_u {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(U)
+            >;
+        };
+
+        tw_i: tw_i {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(I)
+            >;
+        };
+
+        tw_o: tw_o {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(O)
+            >;
+        };
+
+        tw_h: tw_h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(H)
+            >;
+        };
+
+        tw_j: tw_j {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(J)
+            >;
+        };
+
+        tw_k: tw_k {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(K)
+            >;
+        };
+
+        tw_l: tw_l {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(L)
+            >;
+        };
+
+        tw_n: tw_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(N)
+            >;
+        };
+
+        tw_m: tw_m {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(M)
+            >;
+        };
+
+        tw_comma: tw_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(COMMA)
+            >;
+        };
+
+        tw_dot: tw_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(DOT)
+            >;
+        };
+
+        // MACROS: Basic
+
+        sret: sret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LS(RET)>;
+        };
+
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LC(C)>, <&kp LC(C) &kp BSPC>;
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(V))>;
+        };              
+
+        sall: sall {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A)>;
+        };              
 
         p_tmux: p_tmux {
             compatible = "zmk,behavior-macro";
@@ -58,6 +236,21 @@
             tapping-term-ms = <180>;
             bindings = <&mo>, <&kp>;
         };
+
+        sk: sk {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <900>;
+            quick-release;
+        };
+
+        htap_shift: htap_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo 5>, <&sk LSHFT>;
+        };
     };
 };
 
@@ -80,11 +273,11 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LCTRL     &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp LGUI
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp LSHFT     &kp FSLH      &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp ESC
+               &kp LALT      &kp FSLH      &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp LALT
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       &kp ESC       &htap 3 E     &kp BSPC              &kp LSHFT     &htap 3 SPACE &mo 4                                                              
+                                                                       &kp ESC       &htap 3 E     &kp BSPC              &htap_shift   &htap 3 SPACE &mo 4                                                              
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-            >;
+            >;                                                                                                                   
         };                                                                            
 
         lower_layer {
@@ -124,11 +317,11 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           &p_tmux       &n_tmux       XXX           XXX           XXX                   XXX           XXX           XXX           &p_tmux       &n_tmux       XXX           XXX
+               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   XXX           XXX           XXX           &p_tmux       &n_tmux       XXX           XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           &kp UP        &kp DOWN      XXX           XXX           XXX                   XXX           XXX           XXX           &kp LEFT      &kp RIGHT     XXX           XXX
+               &kp LCTRL     &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &sret         &sret         XXX           &kp LEFT      &kp RIGHT     XXX           XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           &p_tab        &n_tab        XXX           XXX                                               &kp RET       XXX           &p_tab        &n_tab        XXX           XXX
+               XXX           XXX           &p_tab        &n_tab        XXX           &paste                                            &kp RET       XXX           &p_tab        &n_tab        XXX           XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           XXX           XXX                   XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
@@ -142,22 +335,28 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N1        &kp N2        &kp N3        XXX           XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N4        &kp N5        &kp N6        XXX           XXX
+               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N4        &kp N5        &kp N6        &kp TAB       &kp PGUP
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           XXX           XXX           XXX           XXX           XXX                                               XXX           &kp N7        &kp N8        &kp N9        &kp N0        XXX
+               XXX           XXX           XXX           XXX           XXX           XXX                                               XXX           &kp N7        &kp N8        &kp N9        &kp N0        &kp PGDN
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           XXX           XXX                   XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-            >;
+            >;                                                                                                                                                                              
         };
 
         extra_layer_5 {
             display-name = "EXTRA 5";
             bindings = <
-                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
-                XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX    XXX   
-                XXX    XXX    XXX    XXX    XXX    XXX                  XXX    XXX    XXX    XXX    XXX    XXX   
-                                     XXX    XXX    XXX                  XXX    XXX    XXX          
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_y         &tw_u         &tw_i         &tw_o         XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &tw_h         &tw_j         &tw_k         &tw_l         XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           XXX           XXX           XXX           XXX           XXX                                               XXX           &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       XXX           XXX           XXX                   XXX           XXX           XXX
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
 
