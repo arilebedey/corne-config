@@ -436,6 +436,14 @@
 #define ht_5sh      &ht_sk 5 LSHFT
 #define ht_ctsl     &ht_kp2 LCTRL FSLH
 
+#define vold        &kp C_VOLUME_DOWN
+#define volu        &kp C_VOLUME_UP
+#define volm        &kp C_MUTE
+#define playpause   &kp LG(P)
+
+#define brid        &kp F18
+#define briu        &kp F19
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -525,9 +533,9 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           &o_clip       &o_ray        XXX           XXX           XXX                   XXX           XXX           &tw_y         &tw_u         &tw_i         &tw_o         XXX
+               XXX           XXX           &o_clip       &o_ray        XXX           XXX           briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &claude       &codebite     XXX           XXX           XXX           XXX                   XXX           XXX           &tw_h         &tw_j         &tw_k         &tw_l         XXX
+               XXX           &claude       &codebite     XXX           XXX           XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           &p_page       &n_page       XXX           XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       XXX
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
