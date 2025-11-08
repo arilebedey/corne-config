@@ -318,6 +318,46 @@
             bindings = <&kp LG(C)>;
         };
 
+        o_emoji: o_emoji {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(E)>;
+        };
+
+        scss: scss {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(N4))>;
+        };
+
+        scs: scs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(N3))>;
+        };
+
+        aero_s: aero_s {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(FSLH)>;
+        };
+
+        aero_m: aero_m {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(DOT)>;
+        };
+
         claude: claude {
           compatible = "zmk,behavior-macro";
           #binding-cells = <0>;
@@ -535,13 +575,13 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           &o_clip       &o_ray        XXX           XXX           briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         ctrlsha
+               XXX           XXX           &o_clip       &o_ray        &scs          &scss         briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         ctrlsha
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &claude       &codebite     XXX           XXX           XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         XXX
+               XXX           &claude       &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           &p_page       &n_page       XXX           XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       sfinder
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       XXX           XXX           &kp LSHFT             XXX           XXX           XXX
+                                                                       XXX           &o_emoji      &kp LSHFT             XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
