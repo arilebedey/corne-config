@@ -262,7 +262,7 @@
             bindings = <&kp LC(LS(T))>;
         };
 
-        p_tab:  p_tab {
+        zen_tp:  zen_tp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -270,12 +270,28 @@
             bindings = <&kp LC(LS(TAB))>;
         };
 
-        n_tab: n_tab {
+        zen_tn: zen_tn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <5>;
             bindings = <&kp LC(TAB)>;
+        };
+
+        zen_wp: zen_wp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(LA(TAB)))>;
+        };
+
+        zen_wn: zen_wn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LA(TAB))>;
         };
 
         shift_tab: shift_tab {
@@ -519,6 +535,9 @@
 #define brid        &kp F18
 #define briu        &kp F19
 
+#define play_p        &kp C_PREV
+#define play_n        &kp C_NEXT
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -580,7 +599,7 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                XXX           &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &ctrl_plus    &sret         &ublw         &kp LEFT      &kp RIGHT     &ubrw         XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &kp LCTRL     &p_tab        &n_tab        XXX           &paste                                            &kp RET       &o_tab        &p_tab        &n_tab        &c_tab        &uc_tab
+               &zen_wp       &kp LCTRL     &zen_tp       &zen_tn       &zen_wn       &paste                                            &kp RET       &o_tab        &zen_tp        &zen_tn        &c_tab        &uc_tab
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        &kp ESC       XXX           XXX                   XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
@@ -610,9 +629,9 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                XXX           XXX           &o_clip       &o_ray        &scs          &scss         briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         ctrlsha
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         XXX
+               XXX           &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         play_p
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &p_page       &n_page       XXX           XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       sfinder
+               play_p        &p_page       &n_page       play_n        XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       play_n
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
                                                                        XXX           &o_emoji      &kp LSHFT             XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
