@@ -9,119 +9,632 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#define XXX &none
+
+&sk {
+    release-after-ms = <900>;
+    quick-release;
+};
+
+/ {
+    behaviors {
+        // MACROS
+        ///////////////
+
+        // MACROS: 42
+
+        ublw: ublw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+              &kp LG(LA(LEFT))
+            >;
+        };
+
+        ubrw: ubrw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+              &kp LG(LA(RIGHT))
+            >;
+        };
+
+        // MACROS: Aerospace
+
+        tw_y: tw_y {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(Y)
+            >;
+        };
+
+        tw_u: tw_u {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(U)
+            >;
+        };
+
+        tw_i: tw_i {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(I)
+            >;
+        };
+
+        tw_o: tw_o {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(O)
+            >;
+        };
+
+        tw_h: tw_h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(H)
+            >;
+        };
+
+        tw_j: tw_j {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(J)
+            >;
+        };
+
+        tw_k: tw_k {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(K)
+            >;
+        };
+
+        tw_l: tw_l {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(L)
+            >;
+        };
+
+        tw_n: tw_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(N)
+            >;
+        };
+
+        tw_m: tw_m {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(M)
+            >;
+        };
+
+        tw_comma: tw_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(COMMA)
+            >;
+        };
+
+        tw_dot: tw_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <
+                &kp LG(DOT)
+            >;
+        };
+
+        // MACROS: Basic
+
+        sret: sret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LS(RET)>;
+        };
+
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LC(C)>, <&kp LC(C) &kp BSPC>;
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(V))>;
+        };              
+
+        sall: sall {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A)>;
+        };              
+
+        p_tmux: p_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp P>;
+        };
+
+        n_tmux: n_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp N>;
+        };
+
+        s_tmux: s_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp S>;
+        };
+
+        l_tmux: l_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp L>;
+        };
+
+        o_tab:  o_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(T)>;
+        };
+
+        c_tab:  c_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(W)>;
+        };
+
+        r_tab:  r_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(R)>;
+        };
+
+        uc_tab:  uc_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(T))>;
+        };
+
+        zen_tp:  zen_tp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(TAB))>;
+        };
+
+        zen_tn: zen_tn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(TAB)>;
+        };
+
+        zen_wp: zen_wp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LS(LA(TAB)))>;
+        };
+
+        zen_wn: zen_wn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(LA(TAB))>;
+        };
+
+        shift_tab: shift_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LS(TAB)>;
+        }; 
+
+        p_page: p_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(LEFT)>;
+        };
+
+        n_page: n_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(RIGHT)>;
+        };
+
+        o_ray: o_ray {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(D)>;
+        };
+
+        o_clip: o_clip {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(C)>;
+        };
+
+        o_emoji: o_emoji {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(E)>;
+        };
+
+        scss: scss {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(N4))>;
+        };
+
+        scs: scs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(N3))>;
+        };
+
+        aero_s: aero_s {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(FSLH)>;
+        };
+
+        aero_m: aero_m {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LA(DOT)>;
+        };
+
+        md_code: md_code {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          wait-ms = <14>;
+          tap-ms = <5>;
+          bindings = <
+              &kp LS(ENTER)
+              &kp GRAVE
+              &kp GRAVE
+              &kp GRAVE
+              &kp LS(ENTER)
+              &kp LC(V)
+              &kp DOWN
+              &kp LS(ENTER)
+              &kp GRAVE
+              &kp GRAVE
+              &kp GRAVE
+              &kp LS(ENTER)
+          >;
+        };
+
+        codebite: codebite {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          wait-ms = <14>;
+          tap-ms = <5>;
+          bindings = <
+              &kp GRAVE
+              &kp LC(V)
+              &kp GRAVE
+              &kp SPACE
+          >;
+        };
+
+        caps_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <
+                UNDERSCORE
+                MINUS
+                N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+                BSPC DEL
+                LEFT RIGHT UP DOWN
+            >;
+        };
+
+        kp_ea: kp_ea {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp E &kp A>;
+        };
+
+        kp_sc: kp_sc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp S &kp C>;
+        };
+
+        ctrl_min: ctrl_min {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(MINUS)>;
+        };
+
+        ctrl_plus: ctrl_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(PLUS)>;
+        };
+
+
+        // HOLD TAPS
+        ///////////////
+
+        htap: htap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_kp: ht_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        ht_kp2: ht_kp2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45>;
+        };
+
+        ht_sk: ht_sk {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo>, <&sk>;
+        };
+    };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        vg {
+            timeout-ms = <100>;
+            key-positions = <30 31>;
+            layers = <0>;
+            bindings = <&mo 4>;
+        };
+        slv {
+            timeout-ms = <100>;
+            key-positions = <29 30>;
+            layers = <0>;
+            bindings = <&mo 2>;
+        };
+        ctrlshft {
+            timeout-ms = <100>;
+            key-positions = <14 29>;
+            layers = <0>;
+            bindings = <&kp LSHFT &kp LCTRL>;
+        };
+    };
+};
+
 / {
     chosen {
         zmk,physical-layout = &default_layout;
     };
 };
 
+#define ht_suse     &ht_kp LGUI SEMI
+#define ht_5sh      &ht_sk 5 LSHFT
+#define ht_ctsl     &ht_kp2 LCTRL FSLH
+
+#define vold        &kp C_VOLUME_DOWN
+#define volu        &kp C_VOLUME_UP
+#define volm        &kp C_MUTE
+#define playpause   &kp LG(P)
+
+#define ctrlsha     &kp F13
+#define sfinder     &kp F14
+#define brid        &kp F18
+#define briu        &kp F19
+
+#define play_p        &kp C_PREV
+#define play_n        &kp C_NEXT
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "QWERTY";
-            // --------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |  LALT |  RALT |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
+        default_layer {                                                                                      
+            display-name = "RSTHD";
             bindings = <
-                &kp TAB   &kp Q &kp W &kp E &kp R &kp T &kp C_MUTE &kp C_PP &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-                &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp LALT   &kp RALT &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                     &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                                      &kp LGUI &mo 1 &kp SPACE              &kp RET &mo 2 &kp RALT
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
-        };
+            //                                                                                            
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               &mo 1         &kp J         &kp C         &kp Y         &kp F         &kp K         &mo 1                 &mo 1         &kp Z         &kp L         &htap 2 COMMA &kp U         &kp Q         &mo 3
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp LG(LALT)  &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp EQUAL
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp LALT      ht_ctsl       &kp V         &kp G         &kp P         &kp B                                             &kp X         &kp W         &kp DOT       &kp MINUS     ht_suse       &kp LGUI
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       &kp ESC       &htap 3 E     &kp BSPC              ht_5sh        &htap 3 SPACE &mo 4                                                              
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
+            >;                                                                                                                   
+        };                                                                            
 
         lower_layer {
             display-name = "NUMBER";
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
-            // | CTRL | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT | BTCR| RGB | RST | BOOT| Unlock|        |       |     |     |     |     |     |      |
-            //                    | GUI |     | SPC   |        | ENT   |     | ALT |
             bindings = <
-                &kp TAB   &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-                &kp LCTRL &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &kp LSHFT &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock                   &trans   &trans   &trans &trans    &trans &trans
-                                                       &kp LGUI     &trans       &kp SPACE                        &kp LGUI &trans   &kp SPACE
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               &kp TAB       &kp N1        &kp N2        &kp N3        &kp N4        &bootloader   XXX                   XXX           &bootloader   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  XXX           XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp LCTRL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR            XXX           XXX           &bt BT_SEL 4  &bt BT_SEL 0  XXX           XXX           XXX   
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp LSHFT     XXX           XXX           &sys_reset    XXX           &studio_unlock                                    XXX           XXX           XXX           XXX           XXX           XXX   
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       &kp LGUI      XXX           &rgb_ug RGB_TOG       &rgb_ug RGB_TOG XXX           XXX
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
 
         raise_layer {
             display-name = "SYMBOL";
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
-            // | CTRL |     |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |               | ENT |     | ALT |
             bindings = <
-                &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp LCTRL &kp RCTRL &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-                &kp LCTRL &trans   &trans &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-                &kp LSHFT &trans   &trans &trans   &trans   &trans                        &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
-                                          &kp LGUI &trans   &kp SPACE                     &kp RET   &trans    &kp RALT
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               &kp HASH      &kp CARET     &kp DQT       &kp SQT       &kp PLUS      &kp QMARK     XXX                   XXX           XXX           &kp AT        XXX           &kp TAB       &shift_tab    XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp EXCL      &kp GRAVE     &kp LBKT      &kp RBKT      &kp EQUAL     &kp STAR      XXX                   XXX           XXX           &kp CARET     XXX           &kp DLLR      &kp TAB       XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &kp AMPS      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp BSLH                                          XXX           XXX           XXX           XXX           XXX           XXX
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       &kp PRCNT     &kp PIPE      &kp BSPC              XXX           XXX           XXX
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
-
-        extra_layer_1 {
-            display-name = "EXTRA 1";
-            bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
-            >;
-        };
-
-        extra_layer_2 {
-            display-name = "EXTRA 2";
-            bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
-            >;
-        };
-
+                                                                                                                                                        
         extra_layer_3 {
-            display-name = "EXTRA 3";
+            display-name = "EXTRA 3";                                                                                                                                   
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   &ctrl_min     &s_tmux       &l_tmux       &p_tmux       &n_tmux       XXX           &r_tab
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &ctrl_plus    &sret         &ublw         &kp LEFT      &kp RIGHT     &ubrw         XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &zen_wp       &kp LCTRL     &zen_tp       &zen_tn       &zen_wn       &paste                                            &kp RET       &o_tab        &zen_tp        &zen_tn        &c_tab        &uc_tab
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       &kp ESC       XXX           XXX                   XXX           XXX           XXX
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
 
         extra_layer_4 {
             display-name = "EXTRA 4";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
-            >;
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               XXX           XXX           XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N1        &kp N2        &kp N3        XXX           XXX
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           &kp_sc        XXX           XXX           XXX           XXX           XXX                   XXX           XXX           &kp N4        &kp N5        &kp N6        &kp_ea        &kp PGUP
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           XXX           XXX           XXX           XXX           XXX                                               XXX           &kp N7        &kp N8        &kp N9        XXX           &kp PGDN
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       XXX           XXX           &kp BSPC              XXX           XXX           &kp N0
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
+            >;                                                                                                                                                                              
         };
 
         extra_layer_5 {
             display-name = "EXTRA 5";
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
-            >;
-        };
-
-        extra_layer_6 {
-            display-name = "EXTRA 6";
-            bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+            //
+            //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               XXX           XXX           &o_clip       &o_ray        &scs          &scss         briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         ctrlsha
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               XXX           &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         play_p
+            //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               play_p        &p_page       &n_page       play_n        XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       play_n
+            //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
+                                                                       XXX           &o_emoji      &kp LSHFT             XXX           XXX           XXX
+            //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
     };
