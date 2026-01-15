@@ -21,28 +21,6 @@
         // MACROS
         ///////////////
 
-        // MACROS: 42
-
-        ublw: ublw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <5>;
-            bindings = <
-              &kp LG(LA(LEFT))
-            >;
-        };
-
-        ubrw: ubrw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <5>;
-            bindings = <
-              &kp LG(LA(RIGHT))
-            >;
-        };
-
         // MACROS: Aerospace
 
         tw_y: tw_y {
@@ -220,6 +198,14 @@
             wait-ms = <10>;
             tap-ms = <5>;
             bindings = <&kp LC(A) &kp S>;
+        };
+
+        s2_tmux: s2_tmux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LC(A) &kp S &kp UP &kp UP &kp RET>;
         };
 
         l_tmux: l_tmux {
@@ -547,7 +533,7 @@
             bindings = <
             //                                                                                            
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &mo 1         &kp J         &kp C         &kp Y         &kp F         &kp K         &mo 1                 &mo 1         &kp Z         &kp L         &htap 2 COMMA &kp U         &kp Q         &mo 3
+               &mo 1         &kp J         &kp C         &kp Y         &kp F         &kp K         &kp LSHFT             &kp LSHFT     &kp Z         &kp L         &htap 2 COMMA &kp U         &kp Q         &mo 1
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp LG(LALT)  &kp R         &kp S         &kp T         &kp H         &kp D         &mo 2                 &mo 2         &kp M         &kp N         &kp A         &kp I         &kp O         &kp EQUAL
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -595,9 +581,9 @@
             bindings = <
             //
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   &ctrl_plus    &s_tmux       &l_tmux       &p_tmux       &n_tmux       XXX           &r_tab
+               XXX           XXX           &p_tmux       &n_tmux       XXX           &sall         XXX                   &ctrl_plus    &s_tmux       &s2_tmux       &p_tmux       &n_tmux       XXX           &r_tab
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &ublw         &kp UP        &kp DOWN      &ubrw         &copy_cut     XXX                   &ctrl_min     &sret         &ublw         &kp LEFT      &kp RIGHT     &ubrw         XXX
+               XXX           XXX           &kp UP        &kp DOWN      XXX           &copy_cut     XXX                   &ctrl_min     &sret         &l_tmux      &kp LEFT      &kp RIGHT     XXX           XXX
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &zen_wp       &kp LCTRL     &zen_tp       &zen_tn       &zen_wn       &paste                                            &kp RET       &o_tab        &zen_tp        &zen_tn        &c_tab        &uc_tab
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
