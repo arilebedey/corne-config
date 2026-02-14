@@ -381,6 +381,29 @@
           >;
         };
 
+        md_prompt: md_prompt {
+          compatible = "zmk,behavior-macro";
+          #binding-cells = <0>;
+          wait-ms = <14>;
+          tap-ms = <5>;
+          bindings = <
+              &kp LS(ENTER)
+              &kp LS(ENTER)
+              &kp HASH
+              &kp HASH
+              &kp HASH
+              &kp SPACE
+              &kp LS(P)
+              &kp R
+              &kp O
+              &kp M
+              &kp P
+              &kp T
+              &kp LS(ENTER)
+              &kp LS(ENTER)
+          >;
+        };
+
         codebite: codebite {
           compatible = "zmk,behavior-macro";
           #binding-cells = <0>;
@@ -623,7 +646,7 @@
             //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                XXX           XXX           &o_clip       &o_ray        &scs          &scss         briu                  volu          volm          &tw_y         &tw_u         &tw_i         &tw_o         ctrlsha
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               XXX           &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         play_p
+               &md_prompt    &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         play_p
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                play_p        &p_page       &n_page       play_n        XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       play_n
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
