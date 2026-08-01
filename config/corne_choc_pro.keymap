@@ -360,6 +360,22 @@
             bindings = <&kp LG(LC(LS(N3)))>;
         };
 
+        nerp: nerp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(P))>;
+        };
+
+        nerc: nerc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <5>;
+            bindings = <&kp LG(LS(C))>;
+        };
+
         aero_s: aero_s {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -706,9 +722,9 @@
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &md_prompt    &md_code      &codebite     &aero_m       &aero_s       XXX           brid                  vold          playpause     &tw_h         &tw_j         &tw_k         &tw_l         play_p
             //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯       ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               play_p        &p_page       &n_page       play_n        XXX           XXX                                               &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       play_n
+               play_p        &p_page       &n_page       play_n        &nerp         &nerc                                             &caps_word    &tw_n         &tw_m         &tw_comma     &tw_dot       play_n
             //╰─────────────┴─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────╮       ╭─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴─────────────╯
-                                                                       XXX           &o_emoji      &kp LSHFT             XXX           XXX           XXX
+                                                                       &nerc         &o_emoji      &kp LSHFT             XXX           XXX           XXX
             //                                                        ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
             >;
         };
